@@ -110,7 +110,7 @@ const CheckoutPage = () => {
                     {item.product.name} × {item.quantity}{" "}
                     <span className="text-muted-foreground">({item.size})</span>
                   </span>
-                  <span className="font-semibold text-foreground">{(item.product.price * item.quantity).toFixed(2)} €</span>
+                  <span className="font-semibold text-foreground">{(item.product.price * item.quantity).toFixed(2)} TND</span>
                 </div>
               ))}
             </div>
