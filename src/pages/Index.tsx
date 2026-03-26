@@ -14,9 +14,8 @@ const Index = () => {
       <Navbar />
       <HeroSection />
 
-      {/* Featured Products */}
       <section className="container mx-auto px-4 py-20">
-        <h2 className="font-display text-2xl font-bold tracking-wider text-secondary neon-glow-cyan sm:text-3xl">
+        <h2 className="font-display text-2xl font-bold tracking-wider text-foreground sm:text-3xl">
           {t.products.title}
         </h2>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

@@ -4,6 +4,7 @@ import { ShoppingBag, Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from "@/store/cartStore";
 import { useLanguageStore } from "@/store/languageStore";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -11,10 +12,13 @@ const Navbar = () => {
   const { t, lang, setLang } = useLanguageStore();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link to="/" className="font-display text-lg font-bold tracking-tight text-foreground">
-          KING OF ROADS
+        <Link to="/" className="flex items-center gap-2.5">
+          <img src={logo} alt="King of Roads" className="h-10 w-auto" />
+          <span className="font-display text-lg font-bold tracking-tight text-foreground">
+            KING OF ROADS
+          </span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
