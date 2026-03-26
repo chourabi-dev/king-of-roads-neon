@@ -1,16 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import HeroSection from "@/components/HeroSection";
+import ProductCard from "@/components/ProductCard";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { products } from "@/data/products";
+import { useLanguageStore } from "@/store/languageStore";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const { t } = useLanguageStore();
+  const featured = products.slice(0, 4);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+
+      {/* Featured Products */}
+      <section className="container mx-auto px-4 py-20">
+        <h2 className="font-display text-2xl font-bold tracking-wider text-secondary neon-glow-cyan sm:text-3xl">
+          {t.products.title}
+        </h2>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {featured.map((product, i) => (
+            <ProductCard key={product.id} product={product} index={i} />
+          ))}
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
