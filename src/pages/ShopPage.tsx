@@ -31,21 +31,20 @@ const ShopPage = () => {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-display text-3xl font-bold tracking-wider text-primary neon-glow-pink sm:text-4xl"
+          className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
         >
           {t.products.title}
         </motion.h1>
 
-        {/* Filters */}
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-2">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-md border px-4 py-2 font-display text-xs uppercase tracking-widest transition-all duration-300 ${
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 ${
                 activeCategory === cat
-                  ? "border-primary bg-primary/20 text-primary neon-box-pink"
-                  : "border-border text-muted-foreground hover:border-primary/50 hover:text-primary"
+                  ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
               }`}
             >
               {categoryLabels[cat]}
@@ -53,7 +52,6 @@ const ShopPage = () => {
           ))}
         </div>
 
-        {/* Grid */}
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
