@@ -66,7 +66,7 @@ const CartPage = () => {
                     Taille: {item.size}
                   </p>
                   <p className="text-sm font-bold text-primary">
-                    {item.product.price.toFixed(2)} €
+                    {item.product.price.toFixed(2)} TND
                   </p>
                 </div>
 
