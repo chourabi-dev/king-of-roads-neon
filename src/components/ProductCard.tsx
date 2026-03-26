@@ -31,7 +31,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
               {product.name}
             </h3>
             <p className="mt-1 text-base font-bold text-primary">
-              {product.price.toFixed(2)} €
+              {product.price.toFixed(2)} TND
             </p>
           </div>
         </div>

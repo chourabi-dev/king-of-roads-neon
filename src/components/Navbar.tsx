@@ -12,20 +12,20 @@ const Navbar = () => {
   const { t, lang, setLang } = useLanguageStore();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2.5">
-          <img src={logo} alt="King of Roads" className="h-10 w-auto" />
-          <span className="font-display text-lg font-bold tracking-tight text-foreground">
+          <img src={logo} alt="King of Roads" className="h-9 w-auto" />
+          <span className="font-display text-base font-bold tracking-tight text-foreground">
             KING OF ROADS
           </span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          <Link to="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+          <Link to="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
             {t.nav.home}
           </Link>
-          <Link to="/shop" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+          <Link to="/shop" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
             {t.nav.shop}
           </Link>
           <button
@@ -35,7 +35,7 @@ const Navbar = () => {
             <Globe className="h-4 w-4" />
             {lang.toUpperCase()}
           </button>
-          <Link to="/cart" className="relative text-muted-foreground transition-colors hover:text-foreground">
+          <Link to="/cart" className="relative text-muted-foreground transition-colors hover:text-primary">
             <ShoppingBag className="h-5 w-5" />
             {totalItems > 0 && (
               <motion.span
@@ -73,10 +73,10 @@ const Navbar = () => {
             className="border-b border-border bg-background md:hidden"
           >
             <div className="flex flex-col gap-4 px-4 py-6">
-              <Link to="/" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-foreground">
+              <Link to="/" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-primary">
                 {t.nav.home}
               </Link>
-              <Link to="/shop" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-foreground">
+              <Link to="/shop" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-primary">
                 {t.nav.shop}
               </Link>
               <button
