@@ -67,7 +67,7 @@ const ProductDetailPage = () => {
               {product.name}
             </h1>
             <p className="mt-3 text-3xl font-bold text-primary">
-              {product.price.toFixed(2)} €
+              {product.price.toFixed(2)} TND
             </p>
             <p className="mt-6 leading-relaxed text-muted-foreground">
               {product.description}

@@ -118,7 +118,7 @@ const CheckoutPage = () => {
               <div className="flex items-center justify-between">
                 <span className="font-display font-bold text-foreground">{t.cart.total}</span>
                 <span className="font-display text-xl font-bold text-primary">
-                  {totalPrice().toFixed(2)} €
+                  {totalPrice().toFixed(2)} TND
                 </span>
               </div>
             </div>

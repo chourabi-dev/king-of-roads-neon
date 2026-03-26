@@ -100,7 +100,7 @@ const CartPage = () => {
             <div className="mt-8 flex items-center justify-between rounded-2xl bg-muted p-6">
               <span className="font-display text-lg font-bold text-foreground">{t.cart.total}</span>
               <span className="font-display text-2xl font-bold text-primary">
-                {totalPrice().toFixed(2)} €
+                {totalPrice().toFixed(2)} TND
               </span>
             </div>
 
