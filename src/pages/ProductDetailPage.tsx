@@ -21,14 +21,6 @@ const ProductDetailPage = () => {
   const { t } = useLanguageStore();
   const { toast } = useToast();
 
-  if (!product) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <p className="text-muted-foreground">Product not found</p>
-      </div>
-    );
-  }
-
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!imgRef.current) return;
     const rect = imgRef.current.getBoundingClientRect();
