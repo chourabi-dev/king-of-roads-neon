@@ -1,5 +1,7 @@
 import HeroSection from "@/components/HeroSection";
+import PromoCarousel from "@/components/PromoCarousel";
 import ProductCard from "@/components/ProductCard";
+import WorkflowProcess from "@/components/WorkflowProcess";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { products } from "@/data/products";
@@ -14,7 +16,13 @@ const Index = () => {
       <Navbar />
       <HeroSection />
 
-      <section className="container mx-auto px-4 py-20">
+      {/* Promo Carousel */}
+      <section className="container mx-auto px-4 py-16">
+        <PromoCarousel />
+      </section>
+
+      {/* Featured Products */}
+      <section className="container mx-auto px-4 py-16">
         <h2 className="font-display text-2xl font-bold tracking-wider text-foreground sm:text-3xl">
           {t.products.title}
         </h2>
@@ -24,6 +32,9 @@ const Index = () => {
           ))}
         </div>
       </section>
+
+      {/* Workflow Process */}
+      <WorkflowProcess />
 
       <Footer />
     </div>
