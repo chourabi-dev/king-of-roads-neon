@@ -8,6 +8,7 @@ import { useLanguageStore } from "@/store/languageStore";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
