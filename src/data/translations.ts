@@ -3,7 +3,7 @@ export const translations = {
     nav: { home: "Accueil", shop: "Boutique", cart: "Panier" },
     hero: {
       title: "KING OF ROADS",
-      subtitle: "Streetwear inspiré par les nuits de Miami",
+      subtitle: "Né dans la rue. Conçu pour les rois de la route.",
       cta: "Découvrir la collection",
     },
     products: {
@@ -51,7 +51,7 @@ export const translations = {
     nav: { home: "Home", shop: "Shop", cart: "Cart" },
     hero: {
       title: "KING OF ROADS",
-      subtitle: "Streetwear inspired by Miami nights",
+      subtitle: "Born on the streets. Built for the road kings.",
       cta: "Explore the collection",
     },
     products: {

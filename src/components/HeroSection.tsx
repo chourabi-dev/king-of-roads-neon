@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { useLanguageStore } from "@/store/languageStore";
 import logo from "@/assets/logo.png";
 
+import "./style/hero.css";
+
 const HeroSection = () => {
   const { t } = useLanguageStore();
 
@@ -22,14 +24,15 @@ const HeroSection = () => {
           className="mx-auto h-36 w-auto sm:h-44 md:h-52 drop-shadow-lg"
         />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="mt-5 font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl"
-        >
-          {t.hero.title}
-        </motion.h1>
+<motion.h1
+  data-text={t.hero.title}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.15 }}
+  className="glitch mt-5 font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl"
+>
+  {t.hero.title}
+</motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 12 }}

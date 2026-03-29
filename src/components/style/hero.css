@@ -1,0 +1,52 @@
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+/* Base layers */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* subtle red shift */
+.glitch::before {
+  color: #ff2a6d;
+  transform: translate(1px, 0);
+  animation: glitch-smooth 3s infinite ease-in-out;
+}
+
+/* subtle cyan shift */
+.glitch::after {
+  color: #00f7ff;
+  transform: translate(-1px, 0);
+  animation: glitch-smooth 2.5s infinite ease-in-out reverse;
+}
+
+/* MAIN TEXT flicker (VERY subtle) */
+.glitch {
+  animation: glitch-flicker 6s infinite;
+}
+
+@keyframes glitch-smooth {
+  0% { clip-path: inset(0 0 0 0); transform: translate(1px, 0); }
+  20% { clip-path: inset(10% 0 80% 0); }
+  40% { clip-path: inset(40% 0 40% 0); transform: translate(-1px, 0); }
+  60% { clip-path: inset(70% 0 20% 0); }
+  80% { clip-path: inset(20% 0 60% 0); transform: translate(1px, 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+/* very subtle flicker */
+@keyframes glitch-flicker {
+  0%, 97%, 100% { opacity: 1; }
+  98% { opacity: 0.85; }
+  99% { opacity: 0.92; }
+}
