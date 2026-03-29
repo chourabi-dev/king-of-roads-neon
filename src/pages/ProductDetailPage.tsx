@@ -1,23 +1,26 @@
 import { useState, useRef, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ShoppingBag, ZoomIn, X } from "lucide-react";
 import { products } from "@/data/products";
 import { useCartStore } from "@/store/cartStore";
 import { useLanguageStore } from "@/store/languageStore";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find((p) => p.id === id);
   const [selectedSize, setSelectedSize] = useState("");
+  const [zoomEnabled, setZoomEnabled] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const imgRef = useRef<HTMLDivElement>(null);
   const addItem = useCartStore((s) => s.addItem);
+  const isMobile = useIsMobile();
   const { t } = useLanguageStore();
   const { toast } = useToast();
 
@@ -55,31 +58,42 @@ const ProductDetailPage = () => {
         </button>
 
         <div className="grid gap-12 md:grid-cols-2">
-          <motion.div
-            ref={imgRef}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="relative cursor-zoom-in overflow-hidden rounded-2xl bg-muted"
-            onMouseEnter={() => setIsZoomed(true)}
-            onMouseLeave={() => setIsZoomed(false)}
-            onMouseMove={handleMouseMove}
-          >
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              width={800}
-              height={800}
-              className="h-full w-full object-cover transition-transform duration-300"
-              style={
-                isZoomed
-                  ? {
-                      transform: "scale(2)",
-                      transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
-                    }
-                  : undefined
-              }
-            />
-          </motion.div>
+          <div className="relative">
+            <motion.div
+              ref={imgRef}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className={`relative overflow-hidden rounded-2xl bg-muted ${zoomEnabled && !isMobile ? "cursor-zoom-in" : ""}`}
+              onMouseEnter={() => zoomEnabled && !isMobile && setIsZoomed(true)}
+              onMouseLeave={() => setIsZoomed(false)}
+              onMouseMove={zoomEnabled && !isMobile ? handleMouseMove : undefined}
+            >
+              <img
+                src={product.images[0]}
+                alt={product.name}
+                width={800}
+                height={800}
+                className="h-full w-full object-cover transition-transform duration-300"
+                style={
+                  isZoomed
+                    ? {
+                        transform: "scale(2)",
+                        transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                      }
+                    : undefined
+                }
+              />
+            </motion.div>
+            {!isMobile && (
+              <button
+                onClick={() => { setZoomEnabled((v) => !v); setIsZoomed(false); }}
+                className="absolute top-3 right-3 z-10 rounded-full bg-background/80 p-2 text-muted-foreground backdrop-blur-sm transition-colors hover:text-foreground"
+                title={zoomEnabled ? "Désactiver le zoom" : "Activer le zoom"}
+              >
+                {zoomEnabled ? <X className="h-4 w-4" /> : <ZoomIn className="h-4 w-4" />}
+              </button>
+            )}
+          </div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
