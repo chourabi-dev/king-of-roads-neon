@@ -29,6 +29,14 @@ const ProductDetailPage = () => {
     setZoomPos({ x, y });
   }, []);
 
+  if (!product) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <p className="text-muted-foreground">Product not found</p>
+      </div>
+    );
+  }
+
   const handleAdd = () => {
     if (!selectedSize) return;
     addItem(product, selectedSize);
