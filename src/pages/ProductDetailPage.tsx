@@ -15,6 +15,7 @@ const ProductDetailPage = () => {
   const navigate = useNavigate();
   const product = products.find((p) => p.id === id);
   const [selectedSize, setSelectedSize] = useState("");
+  const [zoomEnabled, setZoomEnabled] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const imgRef = useRef<HTMLDivElement>(null);
