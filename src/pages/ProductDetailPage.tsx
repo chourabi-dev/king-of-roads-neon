@@ -14,6 +14,9 @@ const ProductDetailPage = () => {
   const navigate = useNavigate();
   const product = products.find((p) => p.id === id);
   const [selectedSize, setSelectedSize] = useState("");
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
+  const imgRef = useRef<HTMLDivElement>(null);
   const addItem = useCartStore((s) => s.addItem);
   const { t } = useLanguageStore();
   const { toast } = useToast();
@@ -25,6 +28,14 @@ const ProductDetailPage = () => {
       </div>
     );
   }
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!imgRef.current) return;
+    const rect = imgRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setZoomPos({ x, y });
+  }, []);
 
   const handleAdd = () => {
     if (!selectedSize) return;
@@ -45,16 +56,28 @@ const ProductDetailPage = () => {
 
         <div className="grid gap-12 md:grid-cols-2">
           <motion.div
+            ref={imgRef}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="overflow-hidden rounded-2xl bg-muted"
+            className="relative cursor-zoom-in overflow-hidden rounded-2xl bg-muted"
+            onMouseEnter={() => setIsZoomed(true)}
+            onMouseLeave={() => setIsZoomed(false)}
+            onMouseMove={handleMouseMove}
           >
             <img
               src={product.images[0]}
               alt={product.name}
               width={800}
               height={800}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-300"
+              style={
+                isZoomed
+                  ? {
+                      transform: "scale(2)",
+                      transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                    }
+                  : undefined
+              }
             />
           </motion.div>
 
