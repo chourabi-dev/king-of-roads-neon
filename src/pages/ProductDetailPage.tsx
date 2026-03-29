@@ -90,7 +90,7 @@ const ProductDetailPage = () => {
                 className="absolute top-3 right-3 z-10 rounded-full bg-background/80 p-2 text-muted-foreground backdrop-blur-sm transition-colors hover:text-foreground"
                 title={zoomEnabled ? "Désactiver le zoom" : "Activer le zoom"}
               >
-                {zoomEnabled ? <ZoomOff className="h-4 w-4" /> : <ZoomIn className="h-4 w-4" />}
+                {zoomEnabled ? <X className="h-4 w-4" /> : <ZoomIn className="h-4 w-4" />}
               </button>
             )}
           </div>
