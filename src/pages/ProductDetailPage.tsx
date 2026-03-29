@@ -20,6 +20,7 @@ const ProductDetailPage = () => {
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const imgRef = useRef<HTMLDivElement>(null);
   const addItem = useCartStore((s) => s.addItem);
+  const isMobile = useIsMobile();
   const { t } = useLanguageStore();
   const { toast } = useToast();
 
