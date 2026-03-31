@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useCartStore } from "@/store/cartStore";
+
 import { useLanguageStore } from "@/store/languageStore";
 import logo from "@/assets/logo.png";
 
