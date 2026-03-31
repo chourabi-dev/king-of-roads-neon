@@ -22,6 +22,9 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
+          <Link to="/social-club" className="text-sm font-semibold text-primary transition-colors hover:text-primary/80">
+            The Social Club
+          </Link>
           <Link to="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
             {t.nav.home}
           </Link>
@@ -35,18 +38,6 @@ const Navbar = () => {
             <Globe className="h-4 w-4" />
             {lang.toUpperCase()}
           </button>
-          <Link to="/cart" className="relative text-muted-foreground transition-colors hover:text-primary">
-            <ShoppingBag className="h-5 w-5" />
-            {totalItems > 0 && (
-              <motion.span
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                className="absolute -right-2.5 -top-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground"
-              >
-                {totalItems}
-              </motion.span>
-            )}
-          </Link>
         </div>
 
         <div className="flex items-center gap-4 md:hidden">
