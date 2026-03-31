@@ -8,6 +8,8 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import NotFound from "./pages/NotFound";
+import SocialClubPage from "./pages/SocialClubPage";
+import CartFab from "./components/CartFab";
 
 const queryClient = new QueryClient();
 
@@ -16,12 +18,14 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <BrowserRouter>
+        <CartFab />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/social-club" element={<SocialClubPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
