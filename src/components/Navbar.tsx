@@ -1,10 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useLanguageStore } from "@/store/languageStore";
 import logo from "@/assets/logo.png";
+
+const NavItem = ({ to, children, onClick }: { to: string; children: React.ReactNode; onClick?: () => void }) => {
+  const { pathname } = useLocation();
+  const isActive = pathname === to;
+  return (
+    <Link
+      to={to}
+      onClick={onClick}
+      className={`text-sm font-medium transition-colors hover:text-primary ${isActive ? "text-foreground" : "text-muted-foreground"}`}
+    >
+      {children}
+    </Link>
+  );
+};
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -22,15 +36,8 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          <Link to="/social-club" className="text-sm font-semibold text-primary transition-colors hover:text-primary/80">
-            The Social Club
-          </Link>
-          <Link to="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-            {t.nav.home}
-          </Link>
-          <Link to="/shop" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-            {t.nav.shop}
-          </Link>
+          <NavItem to="/">{t.nav.home}</NavItem>
+          <NavItem to="/shop">{t.nav.shop}</NavItem>
           <button
             onClick={() => setLang(lang === "fr" ? "en" : "fr")}
             className="flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -38,6 +45,9 @@ const Navbar = () => {
             <Globe className="h-4 w-4" />
             {lang.toUpperCase()}
           </button>
+          <Link to="/social-club" className="rounded-md border border-primary/50 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
+            The Social Club
+          </Link>
         </div>
 
         <div className="flex items-center gap-4 md:hidden">
@@ -56,14 +66,17 @@ const Navbar = () => {
             className="border-b border-border bg-background md:hidden"
           >
             <div className="flex flex-col gap-4 px-4 py-6">
+              <NavItem to="/" onClick={() => setMobileOpen(false)}>{t.nav.home}</NavItem>
+              <NavItem to="/shop" onClick={() => setMobileOpen(false)}>{t.nav.shop}</NavItem>
+              <button
+                onClick={() => { setLang(lang === "fr" ? "en" : "fr"); setMobileOpen(false); }}
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground"
+              >
+                <Globe className="h-4 w-4" />
+                {lang === "fr" ? "English" : "Français"}
+              </button>
               <Link to="/social-club" onClick={() => setMobileOpen(false)} className="font-semibold text-primary hover:text-primary/80">
                 The Social Club
-              </Link>
-              <Link to="/" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-primary">
-                {t.nav.home}
-              </Link>
-              <Link to="/shop" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-primary">
-                {t.nav.shop}
               </Link>
               <button
                 onClick={() => { setLang(lang === "fr" ? "en" : "fr"); setMobileOpen(false); }}
