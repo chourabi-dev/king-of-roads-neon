@@ -8,7 +8,7 @@ import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const totalItems = useCartStore((s) => s.totalItems());
+  
   const { t, lang, setLang } = useLanguageStore();
 
   return (
