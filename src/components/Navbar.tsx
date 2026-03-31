@@ -41,14 +41,6 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4 md:hidden">
-          <Link to="/cart" className="relative text-muted-foreground">
-            <ShoppingBag className="h-5 w-5" />
-            {totalItems > 0 && (
-              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
-                {totalItems}
-              </span>
-            )}
-          </Link>
           <button onClick={() => setMobileOpen(!mobileOpen)} className="text-foreground">
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
