@@ -56,6 +56,9 @@ const Navbar = () => {
             className="border-b border-border bg-background md:hidden"
           >
             <div className="flex flex-col gap-4 px-4 py-6">
+              <Link to="/social-club" onClick={() => setMobileOpen(false)} className="font-semibold text-primary hover:text-primary/80">
+                The Social Club
+              </Link>
               <Link to="/" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-primary">
                 {t.nav.home}
               </Link>
