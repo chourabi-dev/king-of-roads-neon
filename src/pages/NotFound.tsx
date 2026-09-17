@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-kor.png.asset.json";
 
 const NotFound = () => {
   const location = useLocation();
@@ -11,7 +11,7 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4 text-center">
-      <img src={logo} alt="King of Roads" className="h-24 w-auto opacity-50" />
+      <img src={logo.url} alt="King of Roads" className="h-40 w-auto opacity-70" />
       <h1 className="mt-6 font-display text-7xl font-extrabold text-primary">404</h1>
       <p className="mt-3 text-lg text-muted-foreground">Page introuvable</p>
       <Link

@@ -2,12 +2,12 @@ export const translations = {
   fr: {
     nav: { home: "Accueil", shop: "Boutique", cart: "Panier" },
     hero: {
-      title: "KING OF ROADS",
-      subtitle: "Né dans la rue. Conçu pour les rois de la route.",
+      title: "THE ULTIMATE HOOLIGAN",
+      subtitle: "Streetwear brut, construit pour le froid et pensé pour ceux qui dominent la route.",
       cta: "Découvrir la collection",
     },
     products: {
-      title: "Notre Collection",
+      title: "Best Sellers",
       all: "Tout",
       tshirts: "T-Shirts",
       hoodies: "Hoodies",
@@ -88,8 +88,8 @@ export const translations = {
     },
     notFound: {
       title: "404",
-      subtitle: "Lost in the neon",
-      description: "This page doesn't exist... or was swallowed by the Miami night.",
+      subtitle: "Lost on the road",
+      description: "This page doesn't exist or has left the road.",
       back: "Back to home",
     },
     toast: {

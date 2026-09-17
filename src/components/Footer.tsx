@@ -1,19 +1,19 @@
-import { Instagram, Facebook, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguageStore } from "@/store/languageStore";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-kor.png.asset.json";
 
 const Footer = () => {
   const { lang } = useLanguageStore();
 
   return (
-    <footer className="border-t border-border bg-card">
+    <footer className="border-t border-border bg-background">
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2.5">
-              <img src={logo} alt="King of Roads" className="h-10 w-auto" />
+               <img src={logo.url} alt="King of Roads" className="h-20 w-auto grayscale transition-all duration-500 hover:grayscale-0" />
               <span className="font-display text-base font-bold tracking-tight text-foreground">
                 KING OF ROADS
               </span>
@@ -47,14 +47,6 @@ const Footer = () => {
                 </Link>
               </li>
 
-              <li>
-                <Link to="/cyber-city" className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  King of roads game
-                </Link>
-              </li>
-              
-
-              
             </ul>
           </div>
 
@@ -94,7 +86,8 @@ const Footer = () => {
                 href="https://www.instagram.com/kingofroads_/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-all hover:bg-primary hover:text-primary-foreground"
+                 aria-label="Instagram"
+                 className="flex h-10 w-10 items-center justify-center border border-border bg-muted text-muted-foreground transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -102,7 +95,8 @@ const Footer = () => {
                 href="https://www.youtube.com/@kingofroads_"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-all hover:bg-primary hover:text-primary-foreground"
+                 aria-label="YouTube"
+                 className="flex h-10 w-10 items-center justify-center border border-border bg-muted text-muted-foreground transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <Youtube className="h-5 w-5" />
               </a>

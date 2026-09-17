@@ -17,10 +17,10 @@ const CartFab = () => {
         >
           <Link
             to="/cart"
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:scale-110"
+            className="flex h-14 w-14 items-center justify-center rounded-full border border-secondary/50 bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20 transition-transform hover:scale-110"
           >
             <ShoppingBag className="h-6 w-6" />
-            <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-accent-foreground">
+            <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
               {totalItems}
             </span>
           </Link>

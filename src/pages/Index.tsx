@@ -51,26 +51,15 @@ const Index = () => {
       <HeroSection />
       
 
-      {/** <PromoCarousel />  */}
-
-      {/* Promo Carousel (optional) */}
-      {/* <s<<<<<<< HEAD
-      {/* Promo Carousel (optional) */}
-      {/* <section className="container mx-auto px-4 py-16">
-        <PromoCarousel />
-      </section> */}
-
-      {/* FEATURED PRODUCTS */}
- 
-      {/* Promo Carousel 
       <section className="container mx-auto px-4 py-16">
         <PromoCarousel />
-      </section>*/}
+      </section>
  
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="font-display text-2xl font-bold tracking-wider text-foreground sm:text-3xl">
-          {t.products.title}
-        </h2>
+      <section className="container mx-auto px-4 py-20">
+        <div className="flex items-end justify-between gap-4">
+          <div><p className="mb-3 text-xs font-bold uppercase text-secondary">DROP 01 / 2026</p><h2 className="font-display text-4xl font-black uppercase text-foreground sm:text-5xl">{t.products.title}</h2></div>
+          <a href="/shop" className="text-xs font-black uppercase text-secondary transition-colors hover:text-foreground">{t.products.all} →</a>
+        </div>
 
         {/* LOADING */}
         {loading && (
@@ -94,7 +83,7 @@ const Index = () => {
                 No featured products available.
               </div>
             ) : (
-              <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {featured.map((product, i) => (
                   <ProductCard
                     key={product.id}
