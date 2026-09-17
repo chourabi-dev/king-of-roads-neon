@@ -10,6 +10,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import NotFound from "./pages/NotFound";
 import SocialClubPage from "./pages/SocialClubPage";
 import CartFab from "./components/CartFab";
+import CyberCityGamePage from "./pages/cyberCityPage";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,8 @@ const App = () => (
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/social-club" element={<SocialClubPage />} />
+          <Route path="/cyber-city" element={<CyberCityGamePage />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

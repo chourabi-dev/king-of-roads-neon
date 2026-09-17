@@ -110,6 +110,9 @@ const Index = () => {
 
       <WorkflowProcess />
 
+
+
+        <Footer />
     </div>
   )
 }

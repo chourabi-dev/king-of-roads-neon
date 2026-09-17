@@ -46,6 +46,15 @@ const Footer = () => {
                   {lang === "fr" ? "Panier" : "Cart"}
                 </Link>
               </li>
+
+              <li>
+                <Link to="/cyber-city" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  King of roads game
+                </Link>
+              </li>
+              
+
+              
             </ul>
           </div>
 

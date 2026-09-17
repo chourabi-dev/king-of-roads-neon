@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguageStore } from "@/store/languageStore";
 import logo from "@/assets/logo.png";
+import hero from "@/assets/hero-1.png";
+import hero2 from "@/assets/hero-1.jpg";
+
 
 import "./style/hero.css";
 
@@ -10,10 +13,18 @@ const HeroSection = () => {
   const { t } = useLanguageStore();
 
   return (
-    <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-muted/50">
-      {/* Soft gradient bg */}
+    <section className="relative flex min-h-[100vh] items-center justify-center overflow-hidden bg-muted/50">
+      
+      {/* Hero Image Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center scale-105 blur-[2px] "
+        style={{ backgroundImage: `url(${hero2})` }}
+      />
+
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/40 via-background to-secondary/5" />
 
+      {/* Content */}
       <div className="relative z-10 text-center px-4">
         <motion.img
           src={logo}
@@ -24,15 +35,15 @@ const HeroSection = () => {
           className="mx-auto h-36 w-auto sm:h-44 md:h-52 drop-shadow-lg"
         />
 
-<motion.h1
-  data-text={t.hero.title}
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.15 }}
-  className="glitch mt-5 font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl"
->
-  {t.hero.title}
-</motion.h1>
+        <motion.h1
+          data-text={t.hero.title}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="glitch mt-5 font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl"
+        >
+          {t.hero.title}
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 12 }}
