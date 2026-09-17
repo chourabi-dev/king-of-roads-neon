@@ -12,8 +12,8 @@ const WorkflowProcess = () => {
       titleEn: "Order",
       descFr: "Choisissez vos articles et passez votre commande en ligne facilement.",
       descEn: "Choose your items and place your order online easily.",
-      color: "text-primary",
-      bg: "bg-primary/10",
+      color: "text-secondary",
+      border: "border-secondary",
     },
     {
       icon: CheckCircle,
@@ -21,8 +21,8 @@ const WorkflowProcess = () => {
       titleEn: "Confirmation",
       descFr: "Nous validons votre commande et vous contactons pour confirmer.",
       descEn: "We validate your order and contact you to confirm.",
-      color: "text-secondary",
-      bg: "bg-secondary/10",
+      color: "text-primary",
+      border: "border-primary",
     },
     {
       icon: Truck,
@@ -30,14 +30,15 @@ const WorkflowProcess = () => {
       titleEn: "Delivery",
       descFr: "Votre commande est livrée chez vous. Les frais de livraison sont séparés.",
       descEn: "Your order is delivered to you. Delivery fees are separate.",
-      color: "text-accent-foreground",
-      bg: "bg-accent",
+      color: "text-highlight",
+      border: "border-highlight",
     },
   ];
 
   return (
-    <section className="container mx-auto px-4 py-20">
-      <h2 className="text-center font-display text-2xl font-bold tracking-wider text-foreground sm:text-3xl">
+    <section className="border-y border-border bg-card/50 py-24">
+      <div className="container mx-auto px-4">
+        className="text-center font-display text-3xl font-black uppercase text-foreground sm:text-5xl">
         {lang === "fr" ? "Comment ça marche ?" : "How it works?"}
       </h2>
       <p className="mx-auto mt-3 max-w-lg text-center text-sm text-muted-foreground">
@@ -46,7 +47,7 @@ const WorkflowProcess = () => {
           : "A simple 3-step process to receive your items."}
       </p>
 
-      <div className="relative mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div className="relative mt-16 grid grid-cols-1 gap-12 md:grid-cols-3">
         {/* Connecting line */}
         <div className="absolute top-12 left-[16.67%] right-[16.67%] hidden h-px bg-border md:block" />
 
@@ -57,10 +58,10 @@ const WorkflowProcess = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.15 }}
-            className="relative flex flex-col items-center text-center"
+            className="group relative flex flex-col items-center text-center"
           >
-            <div className={`flex h-20 w-20 items-center justify-center rounded-2xl ${step.bg} relative z-10`}>
-              <step.icon className={`h-9 w-9 ${step.color}`} />
+            <div className={`relative z-10 flex h-16 w-16 rotate-45 items-center justify-center border-2 bg-background transition-transform duration-500 group-hover:rotate-90 ${step.border}`}>
+              <step.icon className={`h-7 w-7 -rotate-45 transition-transform duration-500 group-hover:-rotate-90 ${step.color}`} />
             </div>
             <span className="mt-1 text-xs font-bold text-muted-foreground">
               {String(i + 1).padStart(2, "0")}
@@ -81,7 +82,7 @@ const WorkflowProcess = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
-        className="mx-auto mt-10 flex max-w-md items-center gap-3 rounded-xl border border-border bg-card p-4"
+        className="mx-auto mt-12 flex max-w-xl items-center gap-3 border border-border bg-background p-4"
       >
         <Truck className="h-5 w-5 shrink-0 text-secondary" />
         <p className="text-sm text-muted-foreground">
@@ -90,6 +91,7 @@ const WorkflowProcess = () => {
             : "Delivery fees are calculated separately and added during order confirmation."}
         </p>
       </motion.div>
+      </div>
     </section>
   );
 };

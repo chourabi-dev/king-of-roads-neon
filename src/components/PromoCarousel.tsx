@@ -7,7 +7,7 @@ import { useLanguageStore } from "@/store/languageStore";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1200&h=600&fit=crop",
+    image: "/images/product-6.jpg",
     titleFr: "Nouvelle Collection",
     titleEn: "New Collection",
     subtitleFr: "Découvrez nos dernières créations streetwear",
@@ -16,7 +16,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1200&h=600&fit=crop",
+    image: "/images/product-2.jpg",
     titleFr: "Hoodies Premium",
     titleEn: "Premium Hoodies",
     subtitleFr: "Confort et style pour chaque saison",
@@ -25,7 +25,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&h=600&fit=crop",
+    image: "/images/product-8.jpg",
     titleFr: "Livraison Partout en Tunisie",
     titleEn: "Delivery Across Tunisia",
     subtitleFr: "Recevez vos articles chez vous rapidement",
@@ -49,7 +49,7 @@ const PromoCarousel = () => {
   const slide = slides[current];
 
   return (
-    <section className="relative w-full overflow-hidden rounded-2xl mx-auto" style={{ aspectRatio: "21/9" }}>
+    <section className="relative mx-auto aspect-[16/11] w-full overflow-hidden border border-border sm:aspect-[21/9]">
       <AnimatePresence mode="wait">
         <motion.div
           key={slide.id}
@@ -62,16 +62,16 @@ const PromoCarousel = () => {
           <img
             src={slide.image}
             alt={lang === "fr" ? slide.titleFr : slide.titleEn}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover grayscale-[25%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/65 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8 sm:px-16">
             <div>
               <motion.h3
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="font-display text-2xl font-bold text-foreground sm:text-4xl"
+                className="font-display text-3xl font-black uppercase text-foreground sm:text-5xl"
               >
                 {lang === "fr" ? slide.titleFr : slide.titleEn}
               </motion.h3>
@@ -90,7 +90,7 @@ const PromoCarousel = () => {
               >
                 <Link
                   to={slide.link}
-                  className="mt-4 inline-block rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+                  className="mt-6 inline-block rounded-sm bg-secondary px-6 py-3 text-sm font-bold uppercase text-secondary-foreground transition-all hover:-translate-y-1"
                 >
                   {lang === "fr" ? "Voir plus" : "See more"}
                 </Link>

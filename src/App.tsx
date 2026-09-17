@@ -8,7 +8,6 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import NotFound from "./pages/NotFound";
-import SocialClubPage from "./pages/SocialClubPage";
 import CartFab from "./components/CartFab";
 import CyberCityGamePage from "./pages/cyberCityPage";
 
@@ -26,7 +25,6 @@ const App = () => (
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/social-club" element={<SocialClubPage />} />
           <Route path="/cyber-city" element={<CyberCityGamePage />} />
           
           <Route path="*" element={<NotFound />} />

@@ -1,40 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 240 12% 8%;
-    --foreground: 0 0% 95%;
+    --background: 216 33% 3%;
+    --foreground: 204 23% 97%;
 
-    --card: 240 10% 12%;
+    --card: 216 22% 6%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 240 10% 10%;
+    --popover: 216 22% 5%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 270 70% 58%;
+    --primary: 330 84% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 175 100% 42%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 190 100% 47%;
+    --secondary-foreground: 216 33% 3%;
 
-    --muted: 240 8% 16%;
-    --muted-foreground: 240 5% 55%;
+    --muted: 213 17% 10%;
+    --muted-foreground: 207 10% 61%;
 
-    --accent: 270 40% 18%;
-    --accent-foreground: 270 70% 75%;
+    --accent: 330 64% 13%;
+    --accent-foreground: 330 84% 66%;
+    --highlight: 50 94% 54%;
+    --highlight-foreground: 216 33% 3%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 8% 18%;
-    --input: 240 8% 18%;
-    --ring: 270 70% 58%;
+    --border: 210 14% 17%;
+    --input: 210 14% 17%;
+    --ring: 190 100% 47%;
 
-    --radius: 0.875rem;
+    --radius: 0.25rem;
 
     --sidebar-background: 240 10% 10%;
     --sidebar-foreground: 0 0% 95%;
@@ -54,11 +54,19 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background-image: linear-gradient(hsl(var(--foreground) / .018) 1px, transparent 1px);
+    background-size: 100% 5px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
+}
+
+::selection { background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 
 /* Scrollbar */
